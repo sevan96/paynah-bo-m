@@ -102,7 +102,7 @@ export default function PaymentLinkActions({
   const [amount, setAmount] = useState("0");
   const [totalAmount, setTotalAmount] = useState("");
   const [reason, setReason] = useState("");
-  const [sentCanal, setSentCanal] = useState("sms");
+  const [sentCanal, setSentCanal] = useState("SMS");
   const [linkDuration, setLinkDuration] = useState("3d");
   const [percentage, setPercentage] = useState("w-1/4");
 
@@ -1124,7 +1124,7 @@ export default function PaymentLinkActions({
                               </SelectItem>
                               <SelectItem
                                 className={`text-xs px-7 flex items-center focus:bg-gray-100 font-normal`}
-                                value={"email"}
+                                value={"EMAIL"}
                               >
                                 Email
                               </SelectItem>
