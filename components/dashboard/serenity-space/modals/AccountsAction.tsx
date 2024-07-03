@@ -516,6 +516,7 @@ export default function AccountsAction({
                               console.log(merchant.merchantsIds[0].id);
                               downloadPaynahIdFile();
                             }}
+                            disabled={isExportPaynahIdFileLoading}
                           >
                             {isExportPaynahIdFileLoading ? (
                               <ScaleLoader color="#fff" height={15} width={3} />
