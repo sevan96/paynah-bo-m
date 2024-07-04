@@ -160,10 +160,10 @@ export default function AccountsAction({
     AccountsActionEditForm.reset();
   }
 
-  const downloadPaynahIdFile = () => {
+  const downloadPaynahIdFile = (bankAccountId: string) => {
     setExportPaynahIdFileLoading(true);
     downloadFile(
-      `/merchants/${merchant.merchantsIds[0].id}/get-paynah-id`,
+      `/merchants/${merchant.merchantsIds[0].id}/get-paynah-id?bankAccountId=${bankAccountId}`,
       "GET",
       null,
       String(merchant.accessToken),
@@ -514,7 +514,7 @@ export default function AccountsAction({
                             } font-light text-xs h-[2.8rem] text-black hover:text-white border border-[#858587] inline-flex items-center mt-2`}
                             onClick={() => {
                               console.log(merchant.merchantsIds[0].id);
-                              downloadPaynahIdFile();
+                              downloadPaynahIdFile(account?.id as string);
                             }}
                             disabled={isExportPaynahIdFileLoading}
                           >

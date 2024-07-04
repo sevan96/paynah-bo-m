@@ -70,10 +70,10 @@ export default function TopMenuAccountInfos({
       : "";
   };
 
-  const downloadPaynahIdFile = () => {
+  const downloadPaynahIdFile = (bankAccountId: string) => {
     setExportPaynahIdFileLoading(true);
     downloadFile(
-      `/merchants/${merchant.merchantsIds[0].id}/get-paynah-id`,
+      `/merchants/${merchant.merchantsIds[0].id}/get-paynah-id?bankAccountId=${bankAccountId}`,
       "GET",
       null,
       String(merchant.accessToken),
@@ -265,7 +265,7 @@ export default function TopMenuAccountInfos({
                   } font-light text-xs h-[2.2rem] text-black hover:text-white border border-[#858587] inline-flex items-center`}
                   onClick={() => {
                     console.log(merchant.merchantsIds[0].id);
-                    downloadPaynahIdFile();
+                    downloadPaynahIdFile(currentAccount?.id as string);
                   }}
                   disabled={isExportPaynahIdFileLoading}
                 >
